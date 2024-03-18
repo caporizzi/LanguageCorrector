@@ -13,10 +13,19 @@ if __name__ == '__main__':
     prep = pandas.read_csv("French-Dictionary-master/dictionary/prep.csv")
     pron = pandas.read_csv("French-Dictionary-master/dictionary/pron.csv")
     verb = pandas.read_csv("French-Dictionary-master/dictionary/verb.csv")
-    listOfEverything=[adj,adv,conj,det,dictionary,noun,prep,pron,verb]
-
+    listOfEverything=[adj,adv,conj,det,noun,prep,pron,verb,dictionary]
     text=open("texttocorrect.txt")
+    notFound=[]
     for line in text:
         for word in line.split( ):
-            ""
+            if word.__contains__("'"):
+                pass
+            else:
+                notFound.append(word)
+                for i in listOfEverything:
+                    if word.lower() in i["form"].values:
+                        print(f"found {word.lower()}")
+                        notFound.pop()
+                        break
     text.close()
+    print(notFound)
