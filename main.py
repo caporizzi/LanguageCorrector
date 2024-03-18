@@ -1,16 +1,22 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+#words list from https://github.com/hbenbel/French-Dictionary/tree/master
+import pandas
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    adj=pandas.read_csv("French-Dictionary-master/dictionary/adj.csv")
+    adv = pandas.read_csv("French-Dictionary-master/dictionary/adv.csv")
+    conj = pandas.read_csv("French-Dictionary-master/dictionary/conj.csv")
+    det = pandas.read_csv("French-Dictionary-master/dictionary/det.csv")
+    dictionary = pandas.read_csv("French-Dictionary-master/dictionary/dictionary.csv")
+    noun = pandas.read_csv("French-Dictionary-master/dictionary/noun.csv")
+    prep = pandas.read_csv("French-Dictionary-master/dictionary/prep.csv")
+    pron = pandas.read_csv("French-Dictionary-master/dictionary/pron.csv")
+    verb = pandas.read_csv("French-Dictionary-master/dictionary/verb.csv")
+    listOfEverything=[adj,adv,conj,det,dictionary,noun,prep,pron,verb]
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    text=open("texttocorrect.txt")
+    for line in text:
+        for word in line.split( ):
+            ""
+    text.close()
