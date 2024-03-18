@@ -1,6 +1,6 @@
 #words list from https://github.com/hbenbel/French-Dictionary/tree/master
 import pandas
-
+import string
 
 
 if __name__ == '__main__':
@@ -19,6 +19,7 @@ if __name__ == '__main__':
     notFound=[]
     with open("texttocorrect.txt", "r", encoding="utf-8") as text:
         for line in text:
+            line=line.translate(str.maketrans('', '', string.punctuation))
             for word in line.split( ):
                 if word.__contains__("'"):
                     pass
