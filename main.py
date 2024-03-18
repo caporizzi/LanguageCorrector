@@ -13,7 +13,8 @@ if __name__ == '__main__':
     prep = pandas.read_csv("French-Dictionary-master/dictionary/prep.csv")
     pron = pandas.read_csv("French-Dictionary-master/dictionary/pron.csv")
     verb = pandas.read_csv("French-Dictionary-master/dictionary/verb.csv")
-    listOfEverything=[adj,adv,conj,det,noun,prep,pron,verb,dictionary]
+    more = pandas.read_csv("more.csv")
+    listOfEverything=[adj,adv,conj,det,noun,prep,pron,verb,dictionary,more]
 
 
     notFound=[]
@@ -27,7 +28,7 @@ if __name__ == '__main__':
                     notFound.append(word)
                     for i in listOfEverything:
                         if word.lower() in i["form"].values:
-                            print(f"found {word.lower()}")
+                            #print(f"found {word.lower()}")
                             notFound.pop()
                             break
     text.close()
